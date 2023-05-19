@@ -77,10 +77,10 @@ public class TrabajoGrado implements Serializable {
     @Override
     public String toString() {
         return
-                "@" + codigo +
+                codigo +
                 "@" + fecha +
                 "@" + descripcion +
                 "@" + titulo +
-                "@" + listaAutores ;
+                "@" + listaAutores + "@"+"["+listaAutores.toString()+"]" ;
     }
 }

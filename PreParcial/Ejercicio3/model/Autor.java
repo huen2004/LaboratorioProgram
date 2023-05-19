@@ -77,10 +77,10 @@ public class Autor implements Serializable {
     @Override
     public String toString() {
         return
-                "@" + nombre +
+                nombre +
                 "@" + apellido +
                 "@" + cedula +
                 "@" + programa +
-                "@" + tituloProfesional ;
+                "@" + tituloProfesional +"@" ;
     }
 }
