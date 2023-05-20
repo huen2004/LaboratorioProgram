@@ -9,17 +9,21 @@ public class AppCliente {
     int puerto;
     Socket socketComunicacion;
 
+    private Universidad universidad;
     PrintWriter flujoSalida;
     BufferedReader flujoEntrada;
 
-    String mensaje;
-    String tipoServicio;
+    ObjectInputStream inputStream = null;
+    ObjectOutputStream outputStream = null;
 
-    public AppCliente(String host, int puerto, String mensaje, String tipoServicio) {
+
+    public AppCliente(String host, int puerto) {
         this.puerto = puerto;
         this.host = host;
-        this.mensaje = mensaje;
-        this.tipoServicio = tipoServicio;
+    }
+
+    public Universidad getUniversidad() {
+        return universidad;
     }
 
     public void iniciarCliente() {
@@ -30,6 +34,13 @@ public class AppCliente {
 
             flujoEntrada = new BufferedReader(new InputStreamReader(socketComunicacion.getInputStream()));
             flujoSalida = new PrintWriter(socketComunicacion.getOutputStream(), true);
+            inputStream = new ObjectInputStream(socketComunicacion.getInputStream());
+            outputStream = new ObjectOutputStream(socketComunicacion.getOutputStream());
+
+            this.universidad = (Universidad)inputStream.readObject();
+
+            outputStream.close();
+            inputStream.close();
             flujoSalida.close();
             flujoEntrada.close();
 
@@ -40,6 +51,9 @@ public class AppCliente {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }//Fin de la conexión
+        catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void crearConexion()throws IOException {

@@ -1,7 +1,4 @@
-package Test;
-
-import java.util.ArrayList;
-import java.util.Locale;
+package PrimerPunto.Test;
 
 public class test {
 

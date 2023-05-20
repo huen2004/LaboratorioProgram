@@ -1,11 +1,11 @@
 package Ejercicio3.application;
 
-import SegundoPunto.AppServidor;
+
+import Ejercicio3.model.AppServidor;
 
 public class MainServidor {
     public static void main(String[] args) {
 
-        SegundoPunto.AppServidor appServidor = new AppServidor();
-        appServidor.iniciarServidor();
+
     }
 }

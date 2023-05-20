@@ -16,6 +16,7 @@ public class AppCliente {
     String mensaje;
     String tipoServicio;
 
+
     public AppCliente(String host, int puerto, String mensaje, String tipoServicio) {
         this.puerto = puerto;
         this.host = host;
