@@ -1,5 +1,6 @@
 package Ejercicio3.controller;
 
+import Ejercicio3.application.MainCliente;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -47,5 +48,8 @@ public class TrabajosGradoController {
     @FXML
     void pedirServicioAction(ActionEvent event) {
 
+    }
+
+    public void setMain(MainCliente mainCliente) {
     }
 }

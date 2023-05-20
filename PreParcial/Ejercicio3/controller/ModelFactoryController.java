@@ -2,14 +2,14 @@ package Ejercicio3.controller;
 
 import Ejercicio3.model.*;
 import Ejercicio3.application.MainCliente;
-import Ejercicio3.Persistencia.Persistencia;
 
 public class ModelFactoryController {
 
-    MainCliente main;
+    MainCliente mainCliente;
     Universidad universidad;
 
-    AppServidor appServidor = new AppServidor();
+
+    AppCliente appCliente = new AppCliente("localhost",8081);
 
     /**
      * singleton holder
@@ -30,8 +30,10 @@ public class ModelFactoryController {
      * constructor de model factory controller
      */
     public ModelFactoryController() {
-        appServidor.iniciarServidor();
-        this.universidad = appServidor.getUniversidad();
+
+        System.out.println("Iniciando cliente\n");
+        appCliente.iniciarCliente();
+        this.universidad = appCliente.getUniversidad();
 
     }
 
